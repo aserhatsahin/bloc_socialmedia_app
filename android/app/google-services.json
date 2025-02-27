@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "839544221372",
+    "project_id": "instax-d5930",
+    "storage_bucket": "instax-d5930.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839544221372:android:3ff93016f8ad8d0408eab9",
+        "android_client_info": {
+          "package_name": "com.example.bloc_socialmedia_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo7q-qUWTZ4odx5qXA2Rg7wgWi9L8zCiI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
