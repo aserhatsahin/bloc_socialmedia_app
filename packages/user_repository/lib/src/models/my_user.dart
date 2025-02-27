@@ -28,7 +28,7 @@ class MyUser extends Equatable {
     );
   }
 
-  // gettor to determine whether the current user is empty
+  // getter to determine whether the current user is empty
   bool get isEmpty => this == MyUser.empty;
   //getter to determine whether the current user is not empty
   bool get isNotEmpty => this != MyUser.empty;
