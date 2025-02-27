@@ -39,7 +39,7 @@ class MyUser extends Equatable {
   }
 
   //take json and transform to MyUserEntity  and then to MyUser
-  MyUser fromEntity(MyUserEntity entity) {
+  static MyUser fromEntity(MyUserEntity entity) {
     return MyUser(
       id: entity.id,
       email: entity.email,
