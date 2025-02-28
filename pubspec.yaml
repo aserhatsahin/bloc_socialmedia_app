@@ -1,6 +1,6 @@
 name: bloc_socialmedia_app
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
@@ -9,7 +9,18 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  #firebase
   firebase_core: ^3.12.1
+  firebase_auth: ^5.5.1
+
+  #BLoc
+  flutter_bloc: ^9.0.0
+  equatable: ^2.0.7
+
+  #Custom Repository
+  user_repository:
+    path: packages/user_repository
 
 dev_dependencies:
   flutter_test:
