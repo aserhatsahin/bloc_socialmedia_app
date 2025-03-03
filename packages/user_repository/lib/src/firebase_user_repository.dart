@@ -1,5 +1,4 @@
-import 'dart:nativewrappers/_internal/vm/lib/developer.dart';
-
+import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:user_repository/src/models/my_user.dart';
@@ -60,7 +59,6 @@ class FirebaseUserRepository implements UserRepository {
 
   //LOG OUT
   @override
-
   Future<void> logOut() async {
     try {
       await _firebaseAuth.signOut();
