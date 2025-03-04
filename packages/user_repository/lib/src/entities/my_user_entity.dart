@@ -14,6 +14,11 @@ class MyUserEntity extends Equatable {
     this.picture,
   });
 
+
+  /// Converts the MyUserEntity instance into a Map representation.
+  /// 
+  /// Returns a `Map<String, Object>` containing the user's id, email, name, and picture.
+
   Map<String, Object> toDocument() {
     return {'id': id, 'email': email, 'name': name, 'picture': picture!};
   }

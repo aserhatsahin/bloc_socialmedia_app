@@ -22,7 +22,7 @@ class MyUser extends Equatable {
   MyUser copyWith({String? id, String? email, String? name, String? picture}) {
     return MyUser(
       id: id ?? this.id,
-      email: email ?? this.id,
+      email: email ?? this.email,
       name: name ?? this.name,
       picture: picture ?? this.picture,
     );

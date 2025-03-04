@@ -35,7 +35,7 @@ class FirebaseUserRepository implements UserRepository {
       );
 
       myUser = myUser.copyWith(id: user.user!.uid);
-
+      // setUserData(myUser);
       return myUser;
     } catch (e) {
       log(e.toString());

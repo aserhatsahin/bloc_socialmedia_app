@@ -10,16 +10,13 @@ class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() =>
-      _SignUpScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignUpScreenState
-    extends State<SignUpScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
-  final passwordController =
-      TextEditingController();
+  final passwordController = TextEditingController();
   final nameController = TextEditingController();
   String? _errorMsg;
   bool obscurePassword = true;
@@ -55,25 +52,17 @@ class _SignUpScreenState
             children: [
               const SizedBox(height: 20),
               SizedBox(
-                width:
-                    MediaQuery.of(
-                      context,
-                    ).size.width *
-                    0.9,
+                width: MediaQuery.of(context).size.width * 0.9,
                 child: MyTextField(
                   controller: emailController,
                   hintText: 'Email',
                   obscureText: false,
-                  keyboardType:
-                      TextInputType.emailAddress,
-                  prefixIcon: const Icon(
-                    CupertinoIcons.mail_solid,
-                  ),
+                  keyboardType: TextInputType.emailAddress,
+                  prefixIcon: const Icon(CupertinoIcons.mail_solid),
                   validator: (val) {
                     if (val!.isEmpty) {
                       return 'Please fill in this field';
-                    } else if (!emailRexExp
-                        .hasMatch(val)) {
+                    } else if (!emailRexExp.hasMatch(val)) {
                       return 'Please enter a valid email';
                     }
                     return null;
@@ -82,25 +71,15 @@ class _SignUpScreenState
               ),
               const SizedBox(height: 10),
               SizedBox(
-                width:
-                    MediaQuery.of(
-                      context,
-                    ).size.width *
-                    0.9,
+                width: MediaQuery.of(context).size.width * 0.9,
                 child: MyTextField(
                   controller: passwordController,
                   hintText: 'Password',
                   obscureText: obscurePassword,
-                  keyboardType:
-                      TextInputType
-                          .visiblePassword,
-                  prefixIcon: const Icon(
-                    CupertinoIcons.lock_fill,
-                  ),
+                  keyboardType: TextInputType.visiblePassword,
+                  prefixIcon: const Icon(CupertinoIcons.lock_fill),
                   onChanged: (val) {
-                    if (val!.contains(
-                      RegExp(r'[A-Z]'),
-                    )) {
+                    if (val!.contains(RegExp(r'[A-Z]'))) {
                       setState(() {
                         containsUpperCase = true;
                       });
@@ -109,9 +88,7 @@ class _SignUpScreenState
                         containsUpperCase = false;
                       });
                     }
-                    if (val.contains(
-                      RegExp(r'[a-z]'),
-                    )) {
+                    if (val.contains(RegExp(r'[a-z]'))) {
                       setState(() {
                         containsLowerCase = true;
                       });
@@ -120,9 +97,7 @@ class _SignUpScreenState
                         containsLowerCase = false;
                       });
                     }
-                    if (val.contains(
-                      RegExp(r'[0-9]'),
-                    )) {
+                    if (val.contains(RegExp(r'[0-9]'))) {
                       setState(() {
                         containsNumber = true;
                       });
@@ -131,17 +106,13 @@ class _SignUpScreenState
                         containsNumber = false;
                       });
                     }
-                    if (val.contains(
-                      specialCharRexExp,
-                    )) {
+                    if (val.contains(specialCharRexExp)) {
                       setState(() {
-                        containsSpecialChar =
-                            true;
+                        containsSpecialChar = true;
                       });
                     } else {
                       setState(() {
-                        containsSpecialChar =
-                            false;
+                        containsSpecialChar = false;
                       });
                     }
                     if (val.length >= 8) {
@@ -158,16 +129,11 @@ class _SignUpScreenState
                   suffixIcon: IconButton(
                     onPressed: () {
                       setState(() {
-                        obscurePassword =
-                            !obscurePassword;
+                        obscurePassword = !obscurePassword;
                         if (obscurePassword) {
-                          iconPassword =
-                              CupertinoIcons
-                                  .eye_fill;
+                          iconPassword = CupertinoIcons.eye_fill;
                         } else {
-                          iconPassword =
-                              CupertinoIcons
-                                  .eye_slash_fill;
+                          iconPassword = CupertinoIcons.eye_slash_fill;
                         }
                       });
                     },
@@ -176,8 +142,7 @@ class _SignUpScreenState
                   validator: (val) {
                     if (val!.isEmpty) {
                       return 'Please fill in this field';
-                    } else if (!passwordRexExp
-                        .hasMatch(val)) {
+                    } else if (!passwordRexExp.hasMatch(val)) {
                       return 'Please enter a valid password';
                     }
                     return null;
@@ -186,14 +151,11 @@ class _SignUpScreenState
               ),
               const SizedBox(height: 10),
               Row(
-                mainAxisAlignment:
-                    MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment:
-                    CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Column(
-                    crossAxisAlignment:
-                        CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         "⚈  1 uppercase",
@@ -201,11 +163,7 @@ class _SignUpScreenState
                           color:
                               containsUpperCase
                                   ? Colors.green
-                                  : Theme.of(
-                                        context,
-                                      )
-                                      .colorScheme
-                                      .onSecondary,
+                                  : Theme.of(context).colorScheme.onSecondary,
                         ),
                       ),
                       Text(
@@ -214,11 +172,7 @@ class _SignUpScreenState
                           color:
                               containsLowerCase
                                   ? Colors.green
-                                  : Theme.of(
-                                        context,
-                                      )
-                                      .colorScheme
-                                      .onSecondary,
+                                  : Theme.of(context).colorScheme.onSecondary,
                         ),
                       ),
                       Text(
@@ -227,18 +181,13 @@ class _SignUpScreenState
                           color:
                               containsNumber
                                   ? Colors.green
-                                  : Theme.of(
-                                        context,
-                                      )
-                                      .colorScheme
-                                      .onSecondary,
+                                  : Theme.of(context).colorScheme.onSecondary,
                         ),
                       ),
                     ],
                   ),
                   Column(
-                    crossAxisAlignment:
-                        CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         "⚈  1 special character",
@@ -246,11 +195,7 @@ class _SignUpScreenState
                           color:
                               containsSpecialChar
                                   ? Colors.green
-                                  : Theme.of(
-                                        context,
-                                      )
-                                      .colorScheme
-                                      .onSecondary,
+                                  : Theme.of(context).colorScheme.onSecondary,
                         ),
                       ),
                       Text(
@@ -259,11 +204,7 @@ class _SignUpScreenState
                           color:
                               contains8Length
                                   ? Colors.green
-                                  : Theme.of(
-                                        context,
-                                      )
-                                      .colorScheme
-                                      .onSecondary,
+                                  : Theme.of(context).colorScheme.onSecondary,
                         ),
                       ),
                     ],
@@ -272,20 +213,13 @@ class _SignUpScreenState
               ),
               const SizedBox(height: 10),
               SizedBox(
-                width:
-                    MediaQuery.of(
-                      context,
-                    ).size.width *
-                    0.9,
+                width: MediaQuery.of(context).size.width * 0.9,
                 child: MyTextField(
                   controller: nameController,
                   hintText: 'Name',
                   obscureText: false,
-                  keyboardType:
-                      TextInputType.name,
-                  prefixIcon: const Icon(
-                    CupertinoIcons.person_fill,
-                  ),
+                  keyboardType: TextInputType.name,
+                  prefixIcon: const Icon(CupertinoIcons.person_fill),
                   validator: (val) {
                     if (val!.isEmpty) {
                       return 'Please fill in this field';
@@ -296,80 +230,48 @@ class _SignUpScreenState
                   },
                 ),
               ),
-              SizedBox(
-                height:
-                    MediaQuery.of(
-                      context,
-                    ).size.height *
-                    0.02,
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               !signUpRequired
                   ? SizedBox(
-                    width:
-                        MediaQuery.of(
-                          context,
-                        ).size.width *
-                        0.5,
+                    width: MediaQuery.of(context).size.width * 0.5,
                     child: TextButton(
                       onPressed: () {
-                        if (_formKey.currentState!
-                            .validate()) {
-                          MyUser myUser =
-                              MyUser.empty;
+                        if (_formKey.currentState!.validate()) {
+                          MyUser myUser = MyUser.empty;
                           myUser = myUser.copyWith(
-                            email:
-                                emailController
-                                    .text,
-                            name:
-                                nameController
-                                    .text,
+                            email: emailController.text,
+
+                            name: nameController.text,
                           );
+                          print(emailController.text);
 
                           setState(() {
-                            context
-                                .read<
-                                  SignUpBloc
-                                >()
-                                .add(
-                                  SignUpRequired(
-                                    myUser,
-                                    passwordController
-                                        .text,
-                                  ),
-                                );
+                            context.read<SignUpBloc>().add(
+                              SignUpRequired(myUser, passwordController.text),
+                            );
                           });
                         }
                       },
                       style: TextButton.styleFrom(
                         elevation: 3.0,
-                        backgroundColor:
-                            Theme.of(
-                              context,
-                            ).colorScheme.primary,
-                        foregroundColor:
-                            Colors.white,
+                        backgroundColor: Theme.of(context).colorScheme.primary,
+                        foregroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(
-                                60,
-                              ),
+                          borderRadius: BorderRadius.circular(60),
                         ),
                       ),
                       child: const Padding(
-                        padding:
-                            EdgeInsets.symmetric(
-                              horizontal: 25,
-                              vertical: 5,
-                            ),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 25,
+                          vertical: 5,
+                        ),
                         child: Text(
                           'Sign Up',
-                          textAlign:
-                              TextAlign.center,
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
-                            fontWeight:
-                                FontWeight.w600,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
