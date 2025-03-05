@@ -11,7 +11,7 @@
 .svn/
 .swiftpm/
 migrate_working_dir/
-
+.hprof
 # IntelliJ related
 *.iml
 *.ipr
@@ -45,3 +45,11 @@ app.*.map.json
 /android/app/release
 android/java_pid9365.hprof
 android/java_pid11608.hprof
+android/java_pid57978.hprof
+android/java_pid87501.hprof
+macos/Flutter/GeneratedPluginRegistrant.swift
+windows/flutter/generated_plugin_registrant.cc
+windows/flutter/generated_plugins.cmake
+windows/flutter/generated_plugin_registrant.cc
+linux/flutter/generated_plugins.cmake
+linux/flutter/generated_plugin_registrant.cc

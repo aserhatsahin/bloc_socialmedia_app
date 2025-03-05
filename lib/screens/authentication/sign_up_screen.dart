@@ -18,7 +18,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final nameController = TextEditingController();
-  String? _errorMsg;
+
   bool obscurePassword = true;
   IconData iconPassword = CupertinoIcons.eye_fill;
   bool signUpRequired = false;

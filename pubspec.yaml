@@ -22,6 +22,10 @@ dependencies:
   user_repository:
     path: packages/user_repository
 
+  #image
+  image_picker: ^1.1.2
+  image_cropper: ^9.0.0
+  firebase_storage: ^12.4.4
 dev_dependencies:
   flutter_test:
     sdk: flutter
