@@ -18,14 +18,18 @@ dependencies:
   flutter_bloc: ^9.0.0
   equatable: ^2.0.7
 
+  uuid: ^4.4.2
   #Custom Repository
   user_repository:
     path: packages/user_repository
+  post_repository:
+    path: packages/post_repository
 
   #image
   image_picker: ^1.1.2
   image_cropper: ^9.0.0
   firebase_storage: ^12.4.4
+  intl: ^0.20.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

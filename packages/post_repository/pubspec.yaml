@@ -9,7 +9,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  #Custom Repository
+  user_repository:
+    path: ../user_repository
 
+  #Firebase
+  firebase_auth: ^5.5.1
+  cloud_firestore: ^5.6.5
+  firebase_storage: ^12.4.4
+  firebase_core: ^3.12.1
+  uuid: ^4.4.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

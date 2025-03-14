@@ -243,7 +243,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                             name: nameController.text,
                           );
-                          print(emailController.text);
+
 
                           setState(() {
                             context.read<SignUpBloc>().add(

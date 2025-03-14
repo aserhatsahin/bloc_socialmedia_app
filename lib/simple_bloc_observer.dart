@@ -10,7 +10,7 @@ class SimpleBlocObserver extends BlocObserver {
   }
 
   @override
-  void onEvent(Bloc bloc, Object? event) {
+    void onEvent(Bloc bloc, Object? event) {
     super.onEvent(bloc, event);
     log('onEvent -- bloc : ${bloc.runtimeType},event: $event');
   }

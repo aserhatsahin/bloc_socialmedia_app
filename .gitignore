@@ -53,3 +53,5 @@ windows/flutter/generated_plugins.cmake
 windows/flutter/generated_plugin_registrant.cc
 linux/flutter/generated_plugins.cmake
 linux/flutter/generated_plugin_registrant.cc
+devtools_options.yaml
+lib/app_view.dart

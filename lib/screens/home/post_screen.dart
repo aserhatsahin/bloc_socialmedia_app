@@ -1,42 +1,69 @@
+import 'package:bloc_socialmedia_app/blocs/create_post_bloc/create_post_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class PostScreen extends StatelessWidget {
-  const PostScreen({super.key});
+import 'package:post_repository/post_repository.dart';
+import 'package:user_repository/user_repository.dart';
+
+class PostScreen extends StatefulWidget {
+  final MyUser myUser;
+  const PostScreen(this.myUser, {super.key});
+
+  @override
+  State<PostScreen> createState() => _PostScreenState();
+}
+
+class _PostScreenState extends State<PostScreen> {
+  late Post post;
+  final TextEditingController _controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    post = Post.empty.copyWith(myUser: widget.myUser);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      ///allows when click somewhere else in the screen it unfocuses the textfield
-      onTap: () => FocusScope.of(context).unfocus(),
-
-      child: Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.surface,
-
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-
-          child: const Icon(CupertinoIcons.add),
-        ),
-
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Theme.of(context).colorScheme.primary,
-          title: Text('Create a Post !'),
-        ),
-
-        body: SingleChildScrollView(
-          child: Container(
+    return BlocListener<CreatePostBloc, CreatePostState>(
+      listener: (context, state) {
+        if (state is CreatePostSuccess) {
+          Navigator.pop(context);
+        }
+      },
+      child: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Scaffold(
+          backgroundColor: Theme.of(context).colorScheme.surface,
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              if (_controller.text.isNotEmpty) {
+                setState(() {
+                  post = post.copyWith(post: _controller.text);
+                });
+                context.read<CreatePostBloc>().add(CreatePost(post));
+              }
+            },
+            child: const Icon(CupertinoIcons.add),
+          ),
+          appBar: AppBar(
+            elevation: 0,
+            foregroundColor: Colors.white,
+            title: const Text('Create a Post !'),
+          ),
+          body: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: TextField(
+                controller: _controller,
                 maxLines: 10,
                 maxLength: 500,
                 decoration: InputDecoration(
-                  hintText: "Enter your Post here...",
+                  hintText: "Enter Your Post Here...",
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: Colors.grey),
+                    borderSide: const BorderSide(color: Colors.grey),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
